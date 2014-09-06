@@ -2,10 +2,13 @@ require 'rubygems'
 require 'active_record'
 require 'yaml'
 require_relative 'user'
+require 'pry-byebug'
 
 class UserKarmic < ActiveRecord::Base
 
 	UserKarmic.establish_connection(YAML.load_file("config/database.yml"))
+
+	belongs_to :user
 
 	def self.continue_activity?(user)
 		begin
@@ -36,6 +39,10 @@ class UserKarmic < ActiveRecord::Base
 
 	end
 
+	def take_test(user)
+		
+	end
+
 	def self.select_user_activity(user)
 		begin
 			puts "1: Add karmic coins, 2: I'll take the test!, 3: How do I use this?"
@@ -43,7 +50,9 @@ class UserKarmic < ActiveRecord::Base
 			if activity == 1
 				UserKarmic.add_karmic_coins(user)
 			elsif activity == 2
-				
+				UserKarmic.take_test(user)
+			elsif activity == 3
+
 			else
 				puts "Invalid entry! Try again!"
 				select_user_activity(user)
