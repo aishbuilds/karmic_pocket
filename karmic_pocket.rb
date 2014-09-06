@@ -1,16 +1,11 @@
 require 'rubygems'  
 require 'active_record'
+require 'yaml'
 require_relative 'user'
 
-ActiveRecord::Base.establish_connection(  
-	:adapter => "mysql",  
-	:host => "localhost",
-	:username => 'root',
-	:password => 'root123',
-	:database => "karmic"  
-)  
-  
 class UserKarmic < ActiveRecord::Base
+
+	UserKarmic.establish_connection(YAML.load_file("config/database.yml"))
 
 	def self.continue_activity?(user)
 		begin
@@ -20,21 +15,13 @@ class UserKarmic < ActiveRecord::Base
 				select_user_activity(user)
 			end
 		rescue
-			puts "Exception found"
+			puts "Exception found in continue_activity"
 		end
 	end
 
 	def self.add_karmic_coins(user)
 
 		begin
-			ActiveRecord::Base.establish_connection(  
-				:adapter => "mysql",  
-				:host => "localhost",
-				:username => 'root',
-				:password => 'root123',
-				:database => "karmic"  
-			)
-
 			puts "Tell us what good deed you did today! Press Enter to submit your answer."
 			good_deed = gets.chomp
 			UserKarmic.create(:description => good_deed, :user_id => user.id)
@@ -44,7 +31,7 @@ class UserKarmic < ActiveRecord::Base
 			puts "Keep up the good work! "
 			UserKarmic.continue_activity?(user)
 		rescue
-			puts "Exception found"
+			puts "Exception found in add_karmic_coins"
 		end
 
 	end
@@ -59,10 +46,10 @@ class UserKarmic < ActiveRecord::Base
 				
 			else
 				puts "Invalid entry! Try again!"
-				select_user_activity
+				select_user_activity(user)
 			end
 		rescue
-			puts "Exception found"
+			puts "Exception found in select_user_activity"
 		end
 	end
 end  
