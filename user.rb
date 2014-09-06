@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
 	User.establish_connection(YAML.load_file("config/database.yml"))
 
+	has_many :user_karmics
+	
 	def self.create_user
 		begin
 			puts "Enter your name"
