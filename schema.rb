@@ -75,7 +75,7 @@ question_answers = [
 		answer_key: 3
 	},
 	{
-		question: "When we don’t talk with our mouths full of food, that is: ",
+		question: "When we don't talk with our mouths full of food, that is: ",
 		answers: ["strange", "painful",  "silly", "good manners."],
 		answer_key: 4
 	},
@@ -85,14 +85,14 @@ question_answers = [
 		answer_key: 4
 	},
 	{
-		question: "If I want to get to the head of the line so I’m not late, but I want to use good manners I could: ",
+		question: "If I want to get to the head of the line so I'm not late, but I want to use good manners I could: ",
 		answers: ["barge in front of the first person. ", "wait my turn, but loudly complain that I’m going to be late. ",
 					"get mad and stomp away.", 
 					"say to the first person 'Excuse me, could I please go first? I'm afraid I'm going to be late.'"],
 		answer_key: 4
 	},
 	{
-		question: "If I’m running, and I bump into someone, good manners would be to:",
+		question: "If I'm running, and I bump into someone, good manners would be to:",
 		answers: ["say 'It was all your fault.'", "say 'I'm sorry.' ", "say nothing.", "do nothing."],
 		answer_key: 2
 	},
@@ -118,34 +118,38 @@ question_answers = [
 		answer_key: 1
 	},
 	{
-		question: "Someone has just given you a birthday present that you don’t really like. You should say: ",
+		question: "Someone has just given you a birthday present that you don't really like. You should say: ",
 		answers: ["I didn't want this!", "I'm sorry!", "Thank you!", "None of the above"],
 		answer_key: 3
 	},
 	{
 		question: "You notice a friend looking very sad and tired. You realize this would be a good time to: ",
-		answers: ["ignore your friend.", "hit your friend.", "use your good manners.", "None of the above"],
+		answers: ["ignore your friend.", "hit your friend.", "Ask him if he would want to talk?", "None of the above"],
 		answer_key: 3
 	},
 	{
 		question: "An example of good manners is: ",
-		answers: ["someone making fun of someone.", "someone laughing at someone.", "someone kicking someone.", "someone treating someone kindly."],
-		answer_key: 3
+		answers: ["someone making fun of someone.", "someone laughing at someone.", 
+					"someone kicking someone.", "someone treating someone kindly."],
+		answer_key: 4
 	},
 	{
 		question: "You and your friends are having fun walking through the mall. Good manners means: ",
-		answers: ["running into people.", "walking on the right-hand side.", "being loud and boisterous.", "stealing things."],
+		answers: ["running into people.", "walking on the right-hand side.", 
+					"being loud and boisterous.", "stealing things."],
 		answer_key: 2
 	},
 	{
 		question: "Your mother is on the telephone, but you want to ask for $1.00. Good manners means: ",
-		answers: ["you keep bugging her until she gives you the money. ", "you keep calling her name until she looks at you.",
-					"you keep jumping up and down in front of her.", "you wait until she hangs up before you ask for the money."],
+		answers: ["you keep bugging her until she gives you the money. ", 
+					"you keep calling her name until she looks at you.",
+					"you keep jumping up and down in front of her.", 
+					"you wait until she hangs up before you ask for the money."],
 		answer_key: 4
 	},
 	{
 		question: "Someone has just given you a compliment. It’s good manners to say: ",
-		answers: ["Thank you.", "something quiet, so that no one can hear you", 
+		answers: ["Thank you!", "something quiet, so that no one can hear you", 
 					"You must be kidding!", "nothing."],
 		answer_key: 1
 	},
@@ -174,14 +178,14 @@ question_answers = [
 	{
 		question: "The person not using good manners is the one who: ",
 		answers: ["says 'I'm sorry' when someone gets hurts.", "waits his turn in line. ", 
-					"smiles and gives her name when meeting someone.", "keeps to the left on the sidewalk. "],
-		answer_key: 2
+					"smiles and gives her name when meeting someone.", "Laughs at someone when he falls down."],
+		answer_key: 4
 	},
 	{
 		question: "Treating people kindly is important: ",
 		answers: ["only when we want them to like us.", "only when someone is looking.", 
 					"all the time", "only when we want to get our own way."],
-		answer_key: 2
+		answer_key: 3
 	}
 ]
 				
