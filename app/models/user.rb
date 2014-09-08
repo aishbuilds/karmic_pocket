@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	User.establish_connection(YAML.load_file("config/database.yml"))
 
 	has_many :user_karmics
+	has_many :user_quizzes
 	
 	def self.create_user
 		begin
