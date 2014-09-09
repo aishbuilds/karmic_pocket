@@ -1,5 +1,6 @@
 require 'rubygems'  
 require 'active_record'
+Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
 ActiveRecord::Base.establish_connection((YAML.load_file("config/database.yml")))
 
@@ -44,27 +45,15 @@ begin
 			t.integer :answer_key
 		end
 
+		create_table :user_quizzes do |t|
+			t.integer :user_id
+			t.integer :quiz_id
+			t.integer :score
+			t.timestamps
+		end
 	end
 rescue ActiveRecord::StatementInvalid
 	# Do nothing - schema already exists
-end
-
-class Quiz < ActiveRecord::Base
-	has_many :questions
-end
-
-class Question < ActiveRecord::Base
-	belongs_to :quiz
-	has_many :answers
-	has_one :question_key
-end
-
-class Answers < ActiveRecord::Base
-	belongs_to :question
-end
-
-class QuestionKey < ActiveRecord::Base
-	belongs_to :question
 end
 
 quizzes = ["Application", "Analysis", "Synthesis", "Evaluation"]
@@ -194,7 +183,8 @@ question_answers = [
 	{
 		question: "Someone who says 'excuse me' when she burps is: ",
 		answers: ["talking too much. ", "being too noisy.", "being polite.", "being annoying."],
-		answer_key: 3
+		answer_key: 3,
+		quiz_id: 4
 	},
 	{
 		question: "Using good manners is: ",
