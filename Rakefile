@@ -1,6 +1,7 @@
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
 task default: %w[karma]
+task create_database: %w[create_db]
 
 def select_user_activity(user)
 	begin
@@ -9,7 +10,7 @@ def select_user_activity(user)
 		if activity == 1
 			UserKarmic.add_karmic_coins(user)
 		elsif activity == 2
-			# UserKarmic.take_test(user)
+			
 		elsif activity == 3
 
 		else
@@ -46,4 +47,8 @@ task :karma do
 		end
 			select_user_activity(user)
 	end
+end
+
+task :create_db do
+	ruby "schema.rb"
 end
