@@ -1,5 +1,7 @@
 require 'rubygems'  
 require 'active_record'
+require 'pry-byebug'
+
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
 ActiveRecord::Base.establish_connection((YAML.load_file("config/database.yml")))
@@ -226,8 +228,10 @@ question_answers.each do |item|
 	question = Question.create(description: item[:question], quiz_id: item[:quiz_id])
 	ans = nil
 	item[:answers].each_with_index do |answer, index|
-		Answers.create(description: answer, question_id: question.id, option_no: index + 1)
+		Answer.create(description: answer, question_id: question.id, option_no: index + 1)
 	end
+	question.quiz.no_questions.nil? ? question.quiz.no_questions = 1 : question.quiz.no_questions += 1
+	question.quiz.save
 	QuestionKey.create(question_id: question.id, answer_key: item[:answer_key])
 end
 
